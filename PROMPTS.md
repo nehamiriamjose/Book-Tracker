@@ -79,3 +79,23 @@ Explain how I can test data persistence.
 
 What happened:
 The AI verified and hardened the localStorage persistence mechanism in app.js. Verified that adding a book saves its title, author, reading status, and unique ID under 'book_tracker_books'. Confirmed that page reloads automatically load stored entries, status changes update localStorage immediately, and deleted books are removed from storage. Hardened loadBooks() to explicitly check for non-null arrays so deleting all books correctly preserves an empty bookshelf across refreshes without resetting to sample data.
+
+## Prompt 6 : Project Documentation (README)
+Create a comprehensive README.md file for the Book Tracker project.
+
+What happened:
+The AI created a detailed, professional README.md covering project overview, core features, design aesthetics, file structure, getting started instructions, data persistence mechanics, and browser compatibility.
+
+## AI Mistake and How I Fixed It
+
+Mistake:
+The form validation did not consistently display error messages when an input was empty, particularly when the user moved away from a field or cleared its value.
+
+How I identified it:
+I tested the form by leaving the title or author field empty and moving to another field. I noticed that the validation messages did not always appear as expected.
+
+How I fixed it:
+I asked the AI to review the existing validation logic and fix the blur-validation behaviour without changing the website's design or other functionality.
+
+How I verified the fix:
+I tested the form with an empty title, an empty author,and both fields empty. I also checked that the errormessages disappeared when valid information was entered.
