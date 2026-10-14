@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal Book Tracker - A quiet space to chronicle your reading life, track your progress, and curate your personal library.">
+  <title>Book Tracker | A Personal Reading Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+            <path d="M6 6h10"/>
+            <path d="M6 10h10"/>
+            <path d="M6 14h6"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1 class="brand-title">Book Tracker</h1>
+          <p class="brand-tagline">A quiet space to chronicle your reading life</p>
+        </div>
+      </div>
+
+      <!-- Reading Ledger / Quick Stats -->
+      <div class="stats-bar" id="stats-bar" role="region" aria-label="Reading Statistics">
+        <div class="stat-pill" data-status="all">
+          <span class="stat-count" id="stat-total">0</span>
+          <span class="stat-label">Total Books</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-pill" data-status="To read">
+          <span class="stat-count stat-toread" id="stat-toread">0</span>
+          <span class="stat-label">To Read</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-pill" data-status="Reading">
+          <span class="stat-count stat-reading" id="stat-reading">0</span>
+          <span class="stat-label">Reading</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-pill" data-status="Finished">
+          <span class="stat-count stat-finished" id="stat-finished">0</span>
+          <span class="stat-label">Finished</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Add Book Section -->
+      <section class="card form-card" aria-labelledby="form-heading">
+        <div class="card-header">
+          <div>
+            <h2 id="form-heading" class="card-title">Add a Book</h2>
+            <p class="card-subtitle">Log a new title to your personal collection</p>
+          </div>
+        </div>
+
+        <form id="book-form" class="book-form" novalidate>
+          <div class="form-grid">
+            <!-- Book Title Field -->
+            <div class="form-group">
+              <label for="book-title" class="form-label">
+                Book Title <span class="required-star" aria-label="required">*</span>
+              </label>
+              <div class="input-wrapper">
+                <input 
+                  type="text" 
+                  id="book-title" 
+                  name="bookTitle" 
+                  class="form-input" 
+                  placeholder="e.g. The Remains of the Day" 
+                  autocomplete="off"
+                  aria-describedby="title-error"
+                  required
+                />
+              </div>
+              <span class="field-error" id="title-error" aria-live="polite"></span>
+            </div>
+
+            <!-- Author Field -->
+            <div class="form-group">
+              <label for="book-author" class="form-label">
+                Author <span class="required-star" aria-label="required">*</span>
+              </label>
+              <div class="input-wrapper">
+                <input 
+                  type="text" 
+                  id="book-author" 
+                  name="bookAuthor" 
+                  class="form-input" 
+                  placeholder="e.g. Kazuo Ishiguro" 
+                  autocomplete="off"
+                  aria-describedby="author-error"
+                  required
+                />
+              </div>
+              <span class="field-error" id="author-error" aria-live="polite"></span>
+            </div>
+
+            <!-- Reading Status Dropdown Field -->
+            <div class="form-group">
+              <label for="reading-status" class="form-label">
+                Reading Status <span class="required-star" aria-label="required">*</span>
+              </label>
+              <div class="select-wrapper">
+                <select id="reading-status" name="readingStatus" class="form-select" required>
+                  <option value="To read" selected>To read</option>
+                  <option value="Reading">Reading</option>
+                  <option value="Finished">Finished</option>
+                </select>
+                <svg class="select-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </div>
+              <span class="field-hint">Default is set to "To read"</span>
+            </div>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="submit" id="submit-book-btn" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>Add Book</span>
+            </button>
+            <button type="button" id="reset-form-btn" class="btn btn-ghost">
+              Clear
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Library Collection Section -->
+      <section class="card library-card" aria-labelledby="library-heading">
+        <div class="library-toolbar">
+          <div>
+            <h2 id="library-heading" class="card-title">Library Collection</h2>
+            <p class="card-subtitle">Your personal catalog and reading status</p>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="toolbar-controls">
+            <div class="search-box">
+              <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input type="text" id="search-input" placeholder="Search by title or author..." aria-label="Search books">
+            </div>
+
+            <div class="filter-pills" role="tablist" aria-label="Filter books by status">
+              <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+              <button type="button" class="filter-btn" data-filter="To read" role="tab" aria-selected="false">To read</button>
+              <button type="button" class="filter-btn" data-filter="Reading" role="tab" aria-selected="false">Reading</button>
+              <button type="button" class="filter-btn" data-filter="Finished" role="tab" aria-selected="false">Finished</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Books Grid Container -->
+        <div id="books-grid" class="books-grid" aria-live="polite">
+          <!-- Dynamically populated books -->
+        </div>
+
+        <!-- Empty State Container -->
+        <div id="empty-state" class="empty-state hidden">
+          <div class="empty-icon-wrap" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+              <path d="M6 6h10"/>
+              <path d="M6 10h10"/>
+            </svg>
+          </div>
+          <h3 class="empty-title">Your bookshelf is empty</h3>
+          <p class="empty-desc">Add a book above to begin recording your reading journey.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
