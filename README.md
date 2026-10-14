@@ -1,16 +1,16 @@
-# 📚 Book Tracker
+#  Book Tracker
 
 A personal reading journal and library catalog inspired by independent bookstores and classic reading logs. Built with clean, accessible Vanilla HTML, CSS, and JavaScript.
 
 ---
 
-## 📖 Overview
+##  Overview
 
 **Book Tracker** provides a quiet space to chronicle your reading life. Whether you're curating a list of books to read, keeping track of your current reads, or archiving finished titles, Book Tracker offers a simple, elegant experience with instant responsiveness and local persistence.
 
 ---
 
-## ✨ Features
+##  Features
 
 - **Intuitive Book Entry**: Log books with fields for **Book Title**, **Author**, and **Reading Status** (*To read*, *Reading*, *Finished*).
 - **Inline Validation**: Enforces mandatory fields with clear error messages, accessible `aria-describedby` announcements, and automatic focus.
@@ -23,7 +23,7 @@ A personal reading journal and library catalog inspired by independent bookstore
 
 ---
 
-## 🎨 Design Aesthetics
+##  Design Aesthetics
 
 - **Reading-Inspired Palette**: Soft cream and ivory background (`#fbf9f4`) reminiscent of fine book paper, accented with muted botanical sage green (`#3f6050`) and warm leather tones (`#8a5836`).
 - **Natural Typography**: Paired Google Fonts — **Lora** (an elegant editorial serif for titles and headings) and **Plus Jakarta Sans** (clean, readable sans-serif for UI controls).
@@ -31,7 +31,7 @@ A personal reading journal and library catalog inspired by independent bookstore
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 book-tracker/
@@ -44,7 +44,7 @@ book-tracker/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 No build tools, bundlers, or server dependencies are required.
 
@@ -69,7 +69,7 @@ No build tools, bundlers, or server dependencies are required.
 
 ---
 
-## 💾 How Data Persistence Works
+##  How Data Persistence Works
 
 All reading records are saved in your browser's **`localStorage`** under the key `book_tracker_books`.
 
@@ -91,7 +91,7 @@ Each book is stored as a structured JSON object:
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 The codebase includes verification for:
 - [x] Submitting books without page reloads.
@@ -103,6 +103,6 @@ The codebase includes verification for:
 
 ---
 
-## 📄 License
+##  License
 
 This project is open source and available under the [MIT License](LICENSE).
